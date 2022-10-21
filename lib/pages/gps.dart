@@ -22,20 +22,20 @@ class _GPSState extends State<GPS> {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             const DrawerHeader(child: Icon(FeatherIcons.activity)),
-            const ListTile(
+            ListTile(
               leading: Icon(FeatherIcons.home),
               title: TextButton(
                 child: Text('ALBATROSS'),
-                onPressed: (null),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
               ),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(FeatherIcons.navigation),
               title: TextButton(
                 child: Text('GPS'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/gps');
-                },
+                onPressed: (null),
               ),
             ),
             const ListTile(
@@ -55,43 +55,39 @@ class _GPSState extends State<GPS> {
           ],
         ),
       ),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final boxHeight = constraints.maxHeight;
-
-          return Row(
+      body: Row(
+        children: <Widget>[
+          Column(
             children: [
-              Column(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 6,
-                    child: ListView(
-                      children: <Widget>[
-                        Container(
-                          height: 50,
-                          color: Colors.amber[600],
-                          child: const Center(child: Text('Entry A')),
-                        ),
-                        Container(
-                          height: 50,
-                          color: Colors.amber[500],
-                          child: const Center(child: Text('Entry B')),
-                        ),
-                        Container(
-                          height: 50,
-                          color: Colors.amber[100],
-                          child: const Center(child: Text('Entry C')),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Column(),
-              Column(),
+              Container(
+                child: ElevatedButton(
+                  child: Text('TEST'),
+                  onPressed: (null),
+                ),
+              )
             ],
-          );
-        },
+          ),
+          Column(
+            children: [
+              Container(
+                child: ElevatedButton(
+                  child: Text('TEST'),
+                  onPressed: (null),
+                ),
+              )
+            ],
+          ),
+          Column(
+            children: [
+              Container(
+                child: ElevatedButton(
+                  child: Text('TEST'),
+                  onPressed: (null),
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

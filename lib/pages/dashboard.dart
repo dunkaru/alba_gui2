@@ -97,9 +97,15 @@ class _DashboardState extends State<Dashboard> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         color: Colors.grey[300],
-                        child: TextButton(
+                        child: ElevatedButton(
                           child: Text('KIWIX'),
-                          onPressed: null,
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/kiwix');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey[300],
+                            foregroundColor: Colors.black,
+                          ),
                         ),
                       ),
                       Container(
